@@ -102,7 +102,27 @@ static int mypr_pcpu(char *restrict const outbuf, const proc_t *restrict const p
 }
 
 
+В корне делаем make.
+1. aclocal
+2. autoconf
+3. automake  --add-missing
+4. ./configure
+5. make
 
+в итоге у нас соберется все, обращем внимание что в  каталоге ps получившаяся утилита называется не ps а pscommand.
+проверяем вызов 
+
+
+ dd if=/dev/zero of=/dev/null & sleep 3; kill -STOP $!; top -b -n1 -p$!; ./pscommand up $!;
+
+
+потом перемещаемся в корень нашего каталога с исходниками, делаем
+make clean
+dpkg-source --commit
+
+нас спросят про имя заплаты. вводим ps_CPU%_lab6_top)
+и получаем нашу заплатку по следующему пути:
+procps-3.3.9/debian/patches/ps_CPU%_lab6_top
 
 
 
