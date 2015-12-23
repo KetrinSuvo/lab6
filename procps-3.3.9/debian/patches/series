@@ -5,3 +5,4 @@ pmap_test
 libtool-update.diff
 /p_pid-enum.diff
 ignore_erofs.patch
+ps_CPU%_lab6_top
