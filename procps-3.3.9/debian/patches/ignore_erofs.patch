@@ -1,0 +1,13 @@
+--- procps-3.3.9.orig/sysctl.c
++++ procps-3.3.9/sysctl.c
+@@ -436,6 +436,10 @@ static int WriteSetting(const char *sett
+ 			xwarnx(_("permission denied on key '%s'"), outname);
+ 			rc = 0;
+ 			break;
++		case EROFS:
++			xwarn(_("setting key \"%s\""), outname);
++			rc = 0;
++			break;
+ 		default:
+ 			xwarn(_("setting key \"%s\""), outname);
+ 			rc = -1;
